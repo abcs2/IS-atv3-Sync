@@ -1439,4 +1439,56 @@ In file included from [01m[Ksource/sync_car.c:2[m[K:
 [01m[Ksource/sync_car.c:68:6:[m[K [01;31m[Kerror: [m[Kconflicting types for ‘[01m[Kstation_on_board[m[K’; have ‘[01m[Kvoid(struct station *)[m[K’
    68 | void [01;31m[Kstation_on_board[m[K(struct station *station) {
       |      [01;31m[K^~~~~~~~~~~~~~~~[m[K
-[01m[Ksource/sync_car.h:9:6:[m
+[01m[Ksource/sync_car.h:9:6:[m[K [01;36m[Knote: [m[Kprevious declaration of ‘[01m[Kstation_on_board[m[K’ with type ‘[01m[Kvoid(struct station *)[m[K’
+    9 | void [01;36m[Kstation_on_board[m[K(struct station *station);
+      |      [01;36m[K^~~~~~~~~~~~~~~~[m[K
+make: *** [Makefile:2: objects/sync_car.o] Error 1
+[?2004h]0;pori@LAPTOP-DK71SMK3: /mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[01;32mpori@LAPTOP-DK71SMK3[00m:[01;34m/mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[00m$ 2make sync_car2[K[Kmake sync_car[3Pclean./sync_carmake clean
+[?2004lrm -f objects/*.o sync_car
+[?2004h]0;pori@LAPTOP-DK71SMK3: /mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[01;32mpori@LAPTOP-DK71SMK3[00m:[01;34m/mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[00m$ make cleansync_car
+[?2004lgcc -c -pthread source/sync_car.c -o objects/sync_car.o
+gcc -c -pthread source/sync_car-runner.c -o objects/sync_car-runner.o
+gcc -pthread objects/sync_car.o objects/sync_car-runner.o -o sync_car
+[?2004h]0;pori@LAPTOP-DK71SMK3: /mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[01;32mpori@LAPTOP-DK71SMK3[00m:[01;34m/mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[00m$ make sync_car[3Pcleansync_car[3Pclean./sync_car
+[?2004lcar entering station with 11 free seats
+car departed station with 11 new passenger(s) (expected 11)
+car entering station with 40 free seats
+car departed station with 40 new passenger(s) (expected 40)
+car entering station with 13 free seats
+car departed station with 13 new passenger(s) (expected 13)
+car entering station with 39 free seats
+car departed station with 36 new passenger(s) (expected 36)
+Looks good!
+[?2004h]0;pori@LAPTOP-DK71SMK3: /mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[01;32mpori@LAPTOP-DK71SMK3[00m:[01;34m/mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[00m$ ./sync_carmake sync_car[3Pclean
+[?2004lrm -f objects/*.o sync_car
+[?2004h]0;pori@LAPTOP-DK71SMK3: /mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[01;32mpori@LAPTOP-DK71SMK3[00m:[01;34m/mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[00m$ make clean./sync_carmake sync_car
+[?2004lgcc -c -pthread source/sync_car.c -o objects/sync_car.o
+gcc -c -pthread source/sync_car-runner.c -o objects/sync_car-runner.o
+gcc -pthread objects/sync_car.o objects/sync_car-runner.o -o sync_car
+[?2004h]0;pori@LAPTOP-DK71SMK3: /mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[01;32mpori@LAPTOP-DK71SMK3[00m:[01;34m/mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[00m$ make sync_car[3Pclean./sync_car
+[?2004lcar entering station with 7 free seats
+car departed station with 7 new passenger(s) (expected 7)
+car entering station with 22 free seats
+car departed station with 22 new passenger(s) (expected 22)
+car entering station with 34 free seats
+car departed station with 34 new passenger(s) (expected 34)
+car entering station with 20 free seats
+car departed station with 20 new passenger(s) (expected 20)
+car entering station with 14 free seats
+car departed station with 14 new passenger(s) (expected 14)
+car entering station with 10 free seats
+car departed station with 3 new passenger(s) (expected 3)
+Looks good!
+[?2004h]0;pori@LAPTOP-DK71SMK3: /mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[01;32mpori@LAPTOP-DK71SMK3[00m:[01;34m/mnt/c/eu/aaa/infrasoft/atv5/IS-atv3-Sync/abcs2[00m$ ./sync_car
+[?2004lcar entering station with 16 free seats
+car departed station with 16 new passenger(s) (expected 16)
+car entering station with 16 free seats
+car departed station with 16 new passenger(s) (expected 16)
+car entering station with 21 free seats
+car departed station with 21 new passenger(s) (expected 21)
+car entering station with 28 free seats
+car departed station with 28 new passenger(s) (expected 28)
+car entering station with 41 free seats
+car departed station with 19 new passenger(s) (expected 19)
+Looks good!
+[?2004h]0;pori@LAPTOP-DK71SMK3: /mnt/c/eu/aaa/infrasoft/atv5/IS
