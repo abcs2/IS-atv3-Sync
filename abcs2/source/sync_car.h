@@ -2,11 +2,11 @@
 
 struct station {
     int arrived;
-    int maxCapacity;
 
     int passengersOutside;
     int passengersEntering;
     int passengersInside;
+    int maxCapacity;
 
     pthread_mutex_t mutex;
     pthread_cond_t arrival;

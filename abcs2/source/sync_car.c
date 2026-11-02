@@ -20,18 +20,17 @@ void station_load_car(struct station *station, int count) {
     pthread_mutex_lock(&(station->mutex));
 
     station->arrived = 1;
-    station->maxCapacity = 0;
+    station->maxCapacity = count;
 
     station->passengersEntering = 0;
     station->passengersInside = 0;
 
     pthread_cond_broadcast(&(station->arrival));
 
-    while (!(station->passengersEntering) && (station->passengersOutside || !(station->maxCapacity))) {
+    while ((station->passengersEntering > 0) ||
+           (station->passengersOutside > 0 &&
+            station->passengersEntering + station->passengersInside < station->maxCapacity)) {
         pthread_cond_wait(&(station->onboard), &(station->mutex));
-        if (station->passengersInside == count) {
-            station->maxCapacity = 1;
-        }
     }
     station->arrived = 0;
 
@@ -43,7 +42,7 @@ void station_wait_for_car(struct station *station) {
 
     station->passengersOutside++;
 
-    while (!(station->arrived) || station->maxCapacity) {
+    while (!(station->arrived) || station->passengersEntering + station->passengersInside >= station->maxCapacity) {
         pthread_cond_wait(&(station->arrival), &(station->mutex));
     }
 
@@ -57,7 +56,7 @@ void station_on_board(struct station *station) {
     pthread_mutex_lock(&(station->mutex));
 
 	station->passengersEntering--;
-	station->passengersInside++;
+    station->passengersInside++;
     pthread_cond_signal(&(station->onboard));
 
     pthread_mutex_unlock(&(station->mutex));
